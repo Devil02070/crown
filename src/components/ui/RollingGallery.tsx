@@ -8,6 +8,7 @@ import {
 } from "framer-motion";
 import { FaCrown, FaXTwitter } from "react-icons/fa6";
 import { FaTelegramPlane } from "react-icons/fa";
+import Image from "next/image";
 
 const IMGS: string[] = [
     "/media/crown.png",
@@ -155,7 +156,7 @@ const RollingGallery: React.FC<RollingGalleryProps> = ({
                                 transform: `rotateY(${(360 / faceCount) * i}deg) translateZ(${radius}px)`,
                             }}
                         >
-                            <img src={url} alt="gallery" className="pointer-events-none h-full w-full rounded transition-transform duration-300 ease-out group-hover:scale-105" />
+                            <Image src={url} alt="gallery" className="pointer-events-none h-full w-full rounded transition-transform duration-300 ease-out group-hover:scale-105" height={100} width={100} />
                         </div>
                     ))}
                 </motion.div>

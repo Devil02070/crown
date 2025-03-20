@@ -2,6 +2,7 @@
 import Ballpit from '@/components/ui/Ballpit'
 import RollingGallery from '@/components/ui/RollingGallery'
 import PixelTransition from '@/components/ui/Pixel';
+import Image from 'next/image';
 
 
 export default function Body() {
@@ -29,7 +30,7 @@ export default function Body() {
                         <div className="col w-full lg:w-1/2 flex justify-end pt-10 md:pt-0">
                             <PixelTransition
                                 firstContent={
-                                    <img src="/media/crown.png" alt="$crown" className='h-full w-full object-cover' />
+                                    <Image src="/media/crown.png" alt="$crown" className='h-full w-full object-cover' height={300} width={300} />
                                 }
                                 secondContent={
                                     <div className='w-full h-full grid items-center bg-[#DF0D3D]'>
