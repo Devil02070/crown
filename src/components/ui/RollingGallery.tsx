@@ -45,14 +45,12 @@ const RollingGallery: React.FC<RollingGalleryProps> = ({
 }) => {
     // Use default images if none are provided
     const galleryImages = images.length > 0 ? images : IMGS;
-
-    const [isScreenSizeSm, setIsScreenSizeSm] = useState<boolean>(
-        window.innerWidth <= 640
-    );
+    const [isScreenSizeSm, setIsScreenSizeSm] = useState<boolean>(false); // safe default
     useEffect(() => {
-        const handleResize = () => setIsScreenSizeSm(window.innerWidth <= 640);
-        window.addEventListener("resize", handleResize);
-        return () => window.removeEventListener("resize", handleResize);
+        const checkScreenSize = () => setIsScreenSizeSm(window.innerWidth <= 640);
+        checkScreenSize(); // Set initial size on client
+        window.addEventListener("resize", checkScreenSize);
+        return () => window.removeEventListener("resize", checkScreenSize);
     }, []);
 
     // 3D geometry calculations
